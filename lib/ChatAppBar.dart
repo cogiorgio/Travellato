@@ -4,18 +4,17 @@ import 'package:flutter/material.dart';
 import 'SearchBar.dart';
 import 'notifications.dart';
 
-class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
+class ChatAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
 
-  HomeAppBar({
+  ChatAppBar({
     Key key,
   })  : preferredSize = Size.fromHeight(140.0),
         super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
       padding: EdgeInsets.only(top: 30),
       width: MediaQuery.of(context).size.width,
       color: Color(0xFFEAEAEA),
@@ -28,7 +27,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                 Transform.rotate(
                   angle: 90 * 3.14 / 180,
                   child: Icon(
-                    CupertinoIcons.ellipsis,
+                    Icons.add,
                     color: Color(0xFFB74545),
                     size: 35,
                   ),
@@ -37,12 +36,11 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                   child: Container(
                     alignment: Alignment.bottomCenter,
                     child: Text(
-                      "Travellato",
+                      "Messages",
                       style: TextStyle(fontSize: 35),
                     ),
                   ),
                 ),
-                Notifications(),
               ],
             ),
           ),
