@@ -42,32 +42,38 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
 
   callaback(int i) {
     if (i == 0) {
-      _myPage.jumpToPage(0);
-      selectedPage = 0;
+      _myPage.animateToPage(0,
+          duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
     } else if (i == 1) {
-      _myPage.jumpToPage(1);
+      _myPage.animateToPage(1,
+          duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
       selectedPage = 1;
     } else {
-      _myPage.jumpToPage(2);
+      _myPage.animateToPage(2,
+          duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
       selectedPage = 2;
     }
   }
+//SEI SCARSO A PROGRAMMARE <3 concordo
 
   @override
   Widget build(BuildContext context) {
     print(MaterialLocalizations.of(context));
     return Scaffold(
-      appBar: HomeAppBar(),
       body: PageView(
         controller: _myPage,
         children: <Widget>[
           Container(
             color: Colors.red,
-            child: Text("Porco dio 1"),
+            child: Column(
+              children: [HomeAppBar(), Text("Porco dio 1")],
+            ),
           ),
           Container(
             color: Colors.blue,
-            child: Text("Porco dio 2"),
+            child: Column(
+              children: [HomeAppBar2(), Text("Porco dio 2")],
+            ),
           ),
           Container(
             color: Colors.green,
@@ -80,13 +86,27 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
   }
 }
 
+class HomeAppBar2 extends StatelessWidget with PreferredSizeWidget {
+  @override
+  final Size preferredSize;
+
+  HomeAppBar2({
+    Key key,
+  })  : preferredSize = Size.fromHeight(120.0),
+        super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(height: 20, color: Colors.orange);
+  }
+}
+
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
 
   HomeAppBar({
     Key key,
-  })  : preferredSize = Size.fromHeight(120.0),
+  })  : preferredSize = Size.fromHeight(140.0),
         super(key: key);
   @override
   Widget build(BuildContext context) {
