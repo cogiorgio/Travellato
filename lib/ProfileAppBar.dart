@@ -22,8 +22,8 @@ class ProfileAppBar extends StatelessWidget with PreferredSizeWidget {
       child: Row(
         children: [
           Container(
-            height: 110,
-            width: 110,
+            height: 90,
+            width: 90,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(100.0)),

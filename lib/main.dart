@@ -7,6 +7,7 @@ import 'notifications.dart';
 import 'BottomAppBar.dart';
 import 'ChatAppBar.dart';
 import 'ProfileAppBar.dart';
+import 'HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,7 +73,7 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
           Container(
             color: Colors.white,
             child: Column(
-              children: [HomeAppBar(), Text("Home page")],
+              children: [HomeAppBar(), HomePage()],
             ),
           ),
           Container(
