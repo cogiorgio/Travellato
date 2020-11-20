@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'SearchBar.dart';
-import 'notifications.dart';
 
 class ProfileAppBar extends StatelessWidget with PreferredSizeWidget {
   @override

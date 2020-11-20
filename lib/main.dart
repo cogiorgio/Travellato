@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'HomeAppBar.dart';
-import 'SearchBar.dart';
-import 'notifications.dart';
-import 'BottomAppBar.dart';
-import 'ChatAppBar.dart';
-import 'ProfileAppBar.dart';
-import 'HomePage.dart';
+import 'package:myapp/screen/homepage/homeAppBar.dart';
+import 'package:myapp/screen/common/bottomAppBar.dart';
+import 'package:myapp/screen/chat/chatAppBar.dart';
+import 'package:myapp/screen/profile/profileAppBar.dart';
+import 'package:myapp/screen/homepage/homePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,23 +18,28 @@ class MyApp extends StatelessWidget {
     // orientations to portrait up and down.
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
 
     return CupertinoApp(
       theme: CupertinoThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: CupertinoHomePage(),
+      home: TravellatoHomePage(),
+      initialRoute: '/',
+      routes: {
+        // '/map': (context) => SearchMap(),
+        '/profile': (context) => ProfileAppBar(),
+        '/chat': (context) => ChatAppBar(),
+      },
     );
   }
 }
 
-class CupertinoHomePage extends StatefulWidget {
+class TravellatoHomePage extends StatefulWidget {
   @override
-  _CupertinoHomePage createState() => _CupertinoHomePage();
+  _TravellatoHomePage createState() => _TravellatoHomePage();
 }
 
-class _CupertinoHomePage extends State<CupertinoHomePage> {
+class _TravellatoHomePage extends State<TravellatoHomePage> {
   PageController _myPage;
   var selectedPage;
 
@@ -47,7 +50,7 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
     selectedPage = 0;
   }
 
-  callaback(int i) {
+  callback(int i) {
     if (i == 0) {
       _myPage.animateToPage(0,
           duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
@@ -61,11 +64,10 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
       selectedPage = 2;
     }
   }
-//SEI SCARSO A PROGRAMMARE <3 concordo
 
   @override
   Widget build(BuildContext context) {
-    print(MaterialLocalizations.of(context));
+    // print(MaterialLocalizations.of(context));
     return Scaffold(
       body: PageView(
         controller: _myPage,
@@ -73,7 +75,10 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
           Container(
             color: Colors.white,
             child: Column(
-              children: [HomeAppBar(), HomePage()],
+              children: [
+                HomeAppBar(),
+                HomePage(),
+              ],
             ),
           ),
           Container(
@@ -86,12 +91,15 @@ class _CupertinoHomePage extends State<CupertinoHomePage> {
           Container(
             color: Colors.white,
             child: Column(
-              children: [ChatAppBar(), Text("Profile page")],
+              children: [
+                ChatAppBar(),
+                Text("Profile page"),
+              ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: BottomBar(callaback),
+      bottomNavigationBar: BottomBar(callback),
     );
   }
 }

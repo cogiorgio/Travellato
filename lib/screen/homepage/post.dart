@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 class Post extends StatefulWidget {
@@ -29,7 +28,7 @@ class _Post extends State<Post> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: _controller,
-        builder: (BuildContext context, Widget Child) {
+        builder: (BuildContext context, Widget child) {
           return Container(
             padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
             height: 50,

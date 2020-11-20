@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'SearchBar.dart';
-import 'notifications.dart';
+import 'package:myapp/screen/homepage/searchBar.dart';
 
 class ChatAppBar extends StatelessWidget with PreferredSizeWidget {
   @override

@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'SearchBar.dart';
-import 'notifications.dart';
+import 'package:myapp/screen/homepage/searchBar.dart';
+import 'package:myapp/screen/homepage/notifications.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
 
-  HomeAppBar({
-    Key key,
-  })  : preferredSize = Size.fromHeight(140.0),
+  HomeAppBar({Key key})
+      : preferredSize = Size.fromHeight(140.0),
         super(key: key);
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
@@ -31,12 +30,11 @@ class _BottomBar extends State<BottomBar> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
     _controller.reset();
     _controller.forward();
     return AnimatedBuilder(
         animation: _controller,
-        builder: (BuildContext context, Widget Child) {
+        builder: (BuildContext context, Widget child) {
           return Container(
               decoration: BoxDecoration(
                   color: Colors.white,
