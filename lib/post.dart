@@ -124,17 +124,18 @@ class _Post extends State<Post> with TickerProviderStateMixin {
                         flex: 9,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("Manuel trivillino",
-                                style: TextStyle(fontSize: 12)),
+                                style: TextStyle(fontSize: 13)),
                             Text(
-                              "Piazza aspromonte 23",
+                              "Piazza aspromonte",
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 10),
+                                  TextStyle(color: Colors.grey, fontSize: 11),
                             )
                           ],
                         )),
-                    Flexible(flex: 2, child: Container()),
+                    Flexible(flex: 1, child: Container()),
                     Container(
                       height: 38,
                       width: 38,
