@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/chat_icons.dart';
 import 'SearchBar.dart';
 import 'notifications.dart';
 
@@ -10,55 +11,52 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
 
   HomeAppBar({
     Key key,
-  })  : preferredSize = Size.fromHeight(140.0),
+  })  : preferredSize = Size.fromHeight(60.0),
         super(key: key);
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Container(
-      height: 150,
-      padding: EdgeInsets.only(top: 30),
       width: MediaQuery.of(context).size.width,
-      color: Color(0xFFEAEAEA),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Color(0xFFEEF5FD), width: 0.2),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 2, // soften the shadow
+            spreadRadius: 0.1,
+            color: Color(0xFFEEF5FD),
+            offset: Offset(0, 1),
+          )
+        ],
+      ),
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: Row(
-              children: [
-                Transform.rotate(
-                  angle: 90 * 3.14 / 180,
-                  child: Icon(
-                    CupertinoIcons.ellipsis,
-                    color: Color(0xFFB74545),
-                    size: 35,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "Travellato",
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
-                Notifications(),
-              ],
-            ),
-          ),
-          Row(
-            children: [
-              Flexible(flex: 1, child: Container()),
-              Flexible(
-                flex: 18,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 20, 0, 15),
-                  child: SearchBar(),
-                ),
+          Container(height: 0.05 * h),
+          Row(children: [
+            Container(
+                alignment: Alignment.center,
+                width: 0.333 * w,
+                child: Icon(
+                  Icons.add,
+                  color: Color(0xFF548CCC),
+                  size: 30,
+                )),
+            Container(
+              width: 0.333 * w,
+              alignment: Alignment.center,
+              child: Text(
+                "PeeP",
+                style: TextStyle(fontSize: 30),
               ),
-              Flexible(flex: 1, child: Container()),
-            ],
-          )
+            ),
+            Container(
+              alignment: Alignment.center,
+              width: 0.33 * w,
+              child: Notifications(),
+            ),
+          ])
         ],
       ),
     );

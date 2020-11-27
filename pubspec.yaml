@@ -39,8 +39,22 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+
   assets:
     - graphics/
+  fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: icons/MyFlutterApp.ttf
+    - family: Chat
+      fonts:
+        - asset: icons/Chat.ttf
+    - family: Circle
+      fonts:
+        - asset: icons/Circle.ttf
+    - family: Note
+      fonts:
+        - asset: icons/Note.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

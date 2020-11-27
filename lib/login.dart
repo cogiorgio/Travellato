@@ -14,16 +14,15 @@ class Login extends StatelessWidget {
     final double w = MediaQuery.of(context).size.width;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Container(
-        height: 0.23 * h,
+        height: 0.22 * h,
       ),
       Container(
         alignment: Alignment.center,
-        height: 0.32 * h,
         padding: EdgeInsets.only(top: 0.0 * h),
         child: Container(
             padding: EdgeInsets.all(30),
-            height: 200,
-            width: 200,
+            height: 220,
+            width: 220,
             decoration: BoxDecoration(
                 color: Color(0xFFEEF5FD),
                 borderRadius: BorderRadius.all(Radius.circular(300))),

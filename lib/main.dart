@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
+import 'package:myapp/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Start());
 }
 
-class MyApp extends StatelessWidget {
+class Start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // This app is designed only to work vertically, so we limit
@@ -59,7 +60,7 @@ class _Tutorial extends State<Tutorial> with TickerProviderStateMixin {
             });
           });
     controller2 = AnimationController(
-        duration: const Duration(milliseconds: 1800), vsync: this);
+        duration: const Duration(milliseconds: 1400), vsync: this);
     animation2 = Tween(begin: 0.0, end: 800.0).animate(new CurvedAnimation(
         parent: controller2,
         curve: Curves.easeInOutBack,
@@ -71,8 +72,11 @@ class _Tutorial extends State<Tutorial> with TickerProviderStateMixin {
       });
   }
 
-  callback() {
+  callback() async {
     controller2.forward();
+    await Future.delayed(const Duration(seconds: 1), () {});
+    Navigator.push(
+        context, MaterialPageRoute(builder: (BuildContext context) => MyApp()));
   }
 
   @override
